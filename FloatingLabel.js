@@ -31,12 +31,14 @@ class FloatingLabel extends Textbox {
       let textboxStyle = stylesheet.textbox.normal;
       let helpBlockStyle = stylesheet.helpBlock.normal;
       let errorBlockStyle = stylesheet.errorBlock;
+      let textboxViewStyle = stylesheet.textboxView.normal
 
       if (locals.hasError) {
         controlLabelStyle = stylesheet.controlLabel.error;
         formGroupStyle = stylesheet.formGroup.error;
         textboxStyle = stylesheet.textbox.error;
         helpBlockStyle = stylesheet.helpBlock.error;
+        textboxViewStyle = stylesheet.textboxView.error;
       }
 
       if (locals.editable === false) {
@@ -66,6 +68,7 @@ class FloatingLabel extends Textbox {
           }}>
           <View style={formGroupStyle}>
             {label}
+            <View style={textboxViewStyle}>
             <TextInput
               ref='input'
               autoCapitalize={locals.autoCapitalize}
@@ -101,6 +104,7 @@ class FloatingLabel extends Textbox {
               style={[styles.textInput, textboxStyle]}
               value={locals.value}
             />
+            </View>
             {help}
             {error}
           </View>
